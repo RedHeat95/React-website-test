@@ -1,11 +1,4 @@
-import {
-  Navbar,
-  Container,
-  Nav,
-  Form,
-  FormControl,
-  Image,
-} from 'react-bootstrap';
+import { Navbar, Container, Nav, Form, FormControl } from 'react-bootstrap';
 
 export const Header = () => {
   return (

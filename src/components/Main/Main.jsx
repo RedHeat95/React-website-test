@@ -1,4 +1,5 @@
 import { Nav, Container, Row, Col } from 'react-bootstrap';
+import { ModalWindow } from '../Madal/Modal';
 
 export const Main = () => {
   return (
@@ -50,7 +51,9 @@ export const Main = () => {
 
           <Col xs={9}>
             <Row className="mb-3">
-              <Col className="bg-light me-3 pt-3"></Col>
+              <Col className="bg-light me-3 pt-3 d-flex justify-content-center align-items-center ">
+                <ModalWindow />
+              </Col>
               <Col xs={4} className="bg-light pt-2 pb-5">
                 <Nav className="flex-column">
                   <Nav.Link href="/">Feature 1</Nav.Link>
