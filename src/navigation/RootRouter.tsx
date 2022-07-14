@@ -5,12 +5,13 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import { observer } from "mobx-react-lite";
 import { Header } from "../components/Header/Header";
-import { Main } from "../components/Main/Main";
+import Main from "../components/Main/Main";
 import LoginForm from "../components/LoginForm/LoginForm";
 import { Context } from "../index";
 
-export const RootRouter = () => {
+const RootRouter = () => {
   const { store } = useContext(Context);
 
   return (
@@ -20,7 +21,7 @@ export const RootRouter = () => {
       <Routes>
         <Route
           path="/"
-          element={store.isAuth ? <Main /> : <Navigate to="/login" />}
+          element={store.isAuth ? <Main /> : <Navigate to="/login" replace />}
         />
         <Route path="/login" element={<LoginForm />} />
         <Route path="*" element={<Navigate to="/" replace />} />
@@ -28,3 +29,5 @@ export const RootRouter = () => {
     </Router>
   );
 };
+
+export default observer(RootRouter);

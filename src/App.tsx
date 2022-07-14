@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { RootRouter } from "./navigation/RootRouter";
+import RootRouter from "./navigation/RootRouter";
 
 const App = () => {
   return (

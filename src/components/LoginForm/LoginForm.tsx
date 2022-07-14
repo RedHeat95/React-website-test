@@ -9,13 +9,13 @@ const LoginForm: FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { store } = useContext(Context);
-  const navi = useNavigate();
+  const navigate = useNavigate();
 
   const LogIn = () => {
     store.login(email, password);
 
     if (store.isAuth) {
-      navi("/");
+      navigate("/");
     }
   };
 

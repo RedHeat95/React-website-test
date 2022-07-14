@@ -1,9 +1,10 @@
 import { FC, useContext } from "react";
 import { Nav, Row, Col } from "react-bootstrap";
+import { observer } from "mobx-react-lite";
 import { Context } from "../../index";
 import { NavLinks } from "../NavLinks/NavLinks";
 
-export const Main: FC = () => {
+const Main: FC = () => {
   const { store } = useContext(Context);
 
   return (
@@ -127,3 +128,5 @@ export const Main: FC = () => {
     </>
   );
 };
+
+export default observer(Main);
