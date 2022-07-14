@@ -1,4 +1,4 @@
-import { Nav } from 'react-bootstrap';
+import { Nav } from "react-bootstrap";
 
 export const NavLinks = () => {
   return (

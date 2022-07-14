@@ -1,10 +1,10 @@
-import { makeAutoObservable } from 'mobx';
-import AuthService from '../services/AuthService';
+import { makeAutoObservable } from "mobx";
+import AuthService from "../services/AuthService";
 
 export default class Store {
   isAuth = false;
-  isToken = '';
-  isEmail = '';
+  isToken = "";
+  isEmail = "";
   isError = false;
 
   constructor() {
@@ -30,8 +30,8 @@ export default class Store {
   async login(email: string, password: string) {
     try {
       const response = await AuthService.login(email, password);
-      localStorage.setItem('token', response.data.access_token);
-      localStorage.setItem('email', email);
+      localStorage.setItem("token", response.data.access_token);
+      localStorage.setItem("email", email);
       this.setToken(response.data.access_token);
       this.setEmail(email);
       this.setAuth(true);

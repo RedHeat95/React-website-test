@@ -1,8 +1,7 @@
-import { FC, useContext } from 'react';
-import { Nav, Container, Row, Col } from 'react-bootstrap';
-import ModalLogin from '../Modals/ModalLogin';
-import { Context } from '../../index';
-import { NavLinks } from '../NavLinks/NavLinks';
+import { FC, useContext } from "react";
+import { Nav, Row, Col } from "react-bootstrap";
+import { Context } from "../../index";
+import { NavLinks } from "../NavLinks/NavLinks";
 
 export const Main: FC = () => {
   const { store } = useContext(Context);
@@ -13,7 +12,7 @@ export const Main: FC = () => {
         <NavLinks />
       </Nav>
 
-      <Container>
+      <>
         <Row>
           <Col className="bg-light me-3 pt-3">
             <Nav className="flex-column ">
@@ -68,7 +67,7 @@ export const Main: FC = () => {
           <Col xs={9}>
             <Row className="mb-3">
               <Col className="bg-light me-3 pt-3 d-flex flex-column justify-content-center align-items-center ">
-                {store.isAuth ? <h3>{store.isEmail}</h3> : <ModalLogin />}
+                {store.isAuth ? <h3>{store.isEmail}</h3> : null}
               </Col>
 
               <Col xs={4} className="bg-light pt-2 pb-5">
@@ -124,7 +123,7 @@ export const Main: FC = () => {
             </Row>
           </Col>
         </Row>
-      </Container>
+      </>
     </>
   );
 };
