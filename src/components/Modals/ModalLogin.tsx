@@ -19,7 +19,7 @@ const ModalLogin: FC = () => {
 
     if (store.isAuth) {
       navigate('/confirm');
-      localStorage.setItem('email', email);
+
       setShow(false);
     }
   };
