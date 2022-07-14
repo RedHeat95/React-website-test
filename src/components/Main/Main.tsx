@@ -68,12 +68,9 @@ export const Main: FC = () => {
           <Col xs={9}>
             <Row className="mb-3">
               <Col className="bg-light me-3 pt-3 d-flex flex-column justify-content-center align-items-center ">
-                {store.isAuth ? (
-                  <h3>{localStorage.getItem('email')}</h3>
-                ) : (
-                  <ModalLogin />
-                )}
+                {store.isAuth ? <h3>{store.isEmail}</h3> : <ModalLogin />}
               </Col>
+
               <Col xs={4} className="bg-light pt-2 pb-5">
                 <Nav className="flex-column">
                   <Nav.Link href="/" className="text-black-50">
@@ -97,6 +94,7 @@ export const Main: FC = () => {
                 </Nav>
               </Col>
             </Row>
+
             <Row>
               <Col className="bg-light me-3 pt-3 pb-5">
                 <p>
@@ -115,6 +113,7 @@ export const Main: FC = () => {
                   eveniet at dolore pariatur. Ad, dolore?
                 </p>
               </Col>
+
               <Col xs={4} className="bg-light pt-1">
                 <Nav>
                   <Nav.Link href="/" className="text-black-50">
