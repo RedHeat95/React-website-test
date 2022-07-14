@@ -3,9 +3,9 @@ import AuthService from '../services/AuthService';
 
 export default class Store {
   isAuth = false;
-  isEmail = false;
-  isError = false;
   isToken = '';
+  isEmail = '';
+  isError = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -15,16 +15,16 @@ export default class Store {
     this.isAuth = bool;
   }
 
-  setEmail(bool: boolean) {
-    this.isEmail = bool;
+  setToken(str: string) {
+    this.isToken = str;
+  }
+
+  setEmail(str: string) {
+    this.isEmail = str;
   }
 
   setError(bool: boolean) {
     this.isError = bool;
-  }
-
-  setToken(str: string) {
-    this.isToken = str;
   }
 
   async login(email: string, password: string) {
@@ -33,12 +33,10 @@ export default class Store {
       localStorage.setItem('token', response.data.access_token);
       localStorage.setItem('email', email);
       this.setToken(response.data.access_token);
+      this.setEmail(email);
       this.setAuth(true);
-      this.setEmail(true);
     } catch (error) {
       console.log(error);
-      this.setAuth(false);
-      this.setEmail(false);
       this.setError(true);
     }
   }

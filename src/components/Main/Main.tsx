@@ -68,7 +68,7 @@ export const Main: FC = () => {
           <Col xs={9}>
             <Row className="mb-3">
               <Col className="bg-light me-3 pt-3 d-flex flex-column justify-content-center align-items-center ">
-                {store.isEmail ? (
+                {store.isAuth ? (
                   <h3>{localStorage.getItem('email')}</h3>
                 ) : (
                   <ModalLogin />
