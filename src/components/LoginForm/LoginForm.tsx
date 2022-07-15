@@ -1,4 +1,4 @@
-import { FC, useState, useContext } from "react";
+import { FC, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Badge, Form, Button } from "react-bootstrap";
 import { observer } from "mobx-react-lite";
@@ -11,12 +11,14 @@ const LoginForm: FC = () => {
   const { store } = useContext(Context);
   const navigate = useNavigate();
 
-  const LogIn = () => {
-    store.login(email, password);
-
+  useEffect(() => {
     if (store.isAuth) {
       navigate("/");
     }
+  });
+
+  const LogIn = () => {
+    store.login(email, password);
   };
 
   return (
